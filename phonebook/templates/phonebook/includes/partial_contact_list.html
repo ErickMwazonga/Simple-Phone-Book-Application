@@ -1,0 +1,27 @@
+<!-- This is a partial list which is generically updated by create, update and delete -->
+{% for contact in contacts %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ contact.first_name }} &nbsp;{{ contact.last_name }}</td>
+    <td>{{ contact.phone_number }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.location }}</td>
+    <td>{{ contact.emergency_contact }}</td>
+    <td>
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-contact"
+              data-url="{% url 'phonebook:contact_update' pk=contact.id %}">
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-contact"
+              data-url="{% url 'phonebook:contact_delete' pk=contact.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+<tr>
+  <td colspan="6" class="text-center bg-warning">No Contacts</td>
+</tr>
+{% endfor %}

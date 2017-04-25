@@ -1,0 +1,50 @@
+<!-- a list of contacts -->
+{% extends 'phonebook/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Contacts{{ block.super }}{% endblock title %}
+
+<!-- block to load the js file -->
+{% block javascript %}
+  <script src="{% static 'phonebook/js/modal.js' %}"></script>
+{% endblock javascript %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="page-header">Contacts</h1>
+
+    <!-- BUTTON TO TRIGGER THE ACTION OF CREATING CONTACTS USING JS-->
+    <p>
+      <button type="button"
+              class="btn btn-primary js-create-contact"
+              data-url="{% url 'phonebook:contact_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        New Contact
+      </button>
+    </p>
+    <table class="table" id="contact-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Location</th>
+          <th>Emergency Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% include 'phonebook/includes/partial_contact_list.html' %}
+      </tbody>
+    </table>
+
+    <!-- THE MODAL WE WILL BE USING -->
+    <div class="modal fade" id="modal-contact">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

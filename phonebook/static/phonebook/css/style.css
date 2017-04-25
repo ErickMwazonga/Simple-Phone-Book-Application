@@ -1,0 +1,8 @@
+body{
+  padding: 50px;
+}
+
+.modal-content{
+  padding: 10px;
+  background-color: #eee;
+}

@@ -1,0 +1,19 @@
+<!-- the Homepage -->
+
+{% extends 'phonebook/base.html' %}
+
+{% block title %} Home {{ block.super }}{% endblock title %}
+
+{% block content %}
+    <div class="container">
+      <div class="container jumbotron">
+          <div class="text-center">
+              <h2>PHONE BOOK APP</h2>
+              <br>
+              This is a Phone Book Application where you can save contacts to your phonebook and manipulate them.<br>
+              <br>
+              <a type="button" class="btn btn-primary" href={% url 'phonebook:contacts' %}>Click Here to View Phonebook</a>
+          </div>
+      </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,13 @@
+adium-theme-ubuntu==0.3.4
+Django==1.11
+django-crispy-forms==1.6.1
+pbr==2.1.0
+pep8==1.7.0
+pytz==2017.2
+six==1.10.0
+sqlparse==0.1.18
+stevedore==1.21.0
+unity-lens-photos==1.0
+virtualenv==15.1.0
+virtualenv-clone==0.2.6
+virtualenvwrapper==4.7.2

@@ -1,0 +1,38 @@
+<!-- This is the base template containing imports and the block design of all pages -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- loading static files -->
+    <link rel="stylesheet" href="{% static 'phonebook/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'phonebook/css/bootstrap.united.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'phonebook/css/style.css' %}" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'phonebook/fonts/glyphicons-halflings-regular.tff' %}">
+    <link rel="stylesheet" href="{% static 'phonebook/fonts/glyphicons-halflings-regular.woff' %}">
+    <link rel="stylesheet" href="{% static 'phonebook/fontsglyphicons-halflings-regular.woff2' %}">
+
+    <title>{% block title %} |PhoneBook Application{% endblock title %}</title>
+  </head>
+  <body>
+    <!-- content block -->
+    {% block content %}
+    {% endblock content %}
+
+    <footer class="text-center footer">
+        <p class="text-center">Copyright &copy;2017 PhoneBook Application All Rights Reserved<br/>By Erick Mwandeje Mwazonga.</p>
+    </footer>
+
+    <!-- All the link to js scripts to come last. -->
+    <script src="{% static 'phonebook/js/jquery.min.js' %}"></script>
+    <script src="{% static 'phonebook/js/bootstrap.min.js' %}"></script>
+    <!-- other javascript block -->
+    {% block javascript %}
+    {% endblock %}
+  </body>
+</html>
