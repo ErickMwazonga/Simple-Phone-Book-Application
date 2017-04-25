@@ -16,4 +16,4 @@ class Contact(models.Model):
     emergency_contact = models.IntegerField(default=0, unique=True)
 
     def __str__(self):
-        return '{} {}'.format(self.first_name, self.lastname)
+        return '{} {}'.format(self.first_name, self.last_name)

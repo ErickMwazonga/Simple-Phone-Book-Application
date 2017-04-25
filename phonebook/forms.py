@@ -1,7 +1,9 @@
 from django import forms
 from .models import Contact
 from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, MultiWidgetField, Submit
 
+# A form for the Contact model
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
@@ -31,3 +33,35 @@ class ContactForm(forms.ModelForm):
         super(ContactForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = False
+
+
+class ContactSearchForm(forms.Form):
+
+    name = forms.CharField(
+        max_length=100,
+        required=False,
+        help_text='Search by first name or last name'
+    )
+    phone = forms.IntegerField(
+        required=False,
+        help_text='Search by first name or last name'
+    )
+
+
+    def __init__(self, *args, **kwargs):
+        super(ContactSearchForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = 'form-inline'
+        self.helper.field_template = 'bootstrap3/layout/inline_field.html'
+        self.helper.layout = Layout(
+            'name',
+            'phone',
+            Submit('Search', 'search', css_class='btn-default'),
+        )
+        self.helper.form_method = 'get'
+
+    def get_queryset_filters(self):
+        filters = {}
+        if self.is_valid():
+            name = self.cleaned_data.get('name')
+            filters['name'] = name

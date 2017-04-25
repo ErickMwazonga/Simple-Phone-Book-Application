@@ -7,10 +7,11 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, TemplateView
+from django.db.models import Sum, Q
 
 # project imports
 from .models import Contact
-from .forms import ContactForm
+from .forms import ContactForm, ContactSearchForm
 
 # index view
 class IndexView(TemplateView):
@@ -77,4 +78,25 @@ class ContactListView(ListView):
     template_name = 'phonebook/contact_list.html'
 
     def get_queryset(self):
-        return Contact.objects.all()
+        queryset = super(ContactListView, self).get_queryset().order_by('-first_name')
+
+        by_name = self.request.GET.get('name')
+        by_phone = self.request.GET.get('phone')
+
+        if by_phone and by_name:
+            return queryset.filter(
+                Q(first_name__contains=by_name) | Q(last_name__contains=by_name) | Q(phone_number__contains=by_phone)
+            )
+        if by_name:
+            return queryset.filter(
+                Q(first_name__contains=by_name) | Q(last_name=by_name)
+            )
+        if by_phone:
+            return queryset.filter(
+                phone_number__contains=by_phone
+            )
+        return queryset
+    def get_context_data(self, **kwargs):
+        cxt = super(ContactListView, self).get_context_data(**kwargs)
+        cxt['search_form'] = ContactSearchForm()
+        return cxt

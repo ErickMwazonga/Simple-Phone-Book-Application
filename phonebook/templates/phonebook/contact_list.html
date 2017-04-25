@@ -12,17 +12,34 @@
 
 {% block content %}
   <div class="container">
+    <div class="container jumbotron">
+      <div class="">
+        Search by
+      </div>
+      <div class="col-md-8">
+        {% include "phonebook/includes/contact_search.html" %}
+      </div>
+      <div class="col-md-2 col-0ffset-2">
+        <a type="button"
+                class="btn btn-primary"
+                href="{% url 'phonebook:contacts' %}">
+          <span class="glyphicon glyphicon-hourglass"></span>
+          Reload
+        </a>
+      </div>
+    </div>
+
     <h1 class="page-header">Contacts</h1>
 
-    <!-- BUTTON TO TRIGGER THE ACTION OF CREATING CONTACTS USING JS-->
-    <p>
+    <div class="col-md-2">
       <button type="button"
               class="btn btn-primary js-create-contact"
               data-url="{% url 'phonebook:contact_create' %}">
         <span class="glyphicon glyphicon-plus"></span>
         New Contact
       </button>
-    </p>
+    </div>
+
     <table class="table" id="contact-table">
       <thead>
         <tr>
