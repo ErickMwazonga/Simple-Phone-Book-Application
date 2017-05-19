@@ -34,9 +34,22 @@ class ContactForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_tag = False
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        email_qs = Contact.objects.filter(email=email)
+        if email_qs.exists():
+            raise forms.ValidationError("This email has already been registered")
+        return email
 
 class ContactSearchForm(forms.Form):
-
+    # widgets = {
+    #     'name': forms.TextInput(
+    #         attrs={'id':"search_name"}
+    #     )
+    #     'phone': forms.IntegerField(
+    #         attrs={'id':"search_phone"}
+    #     )
+    # }
     name = forms.CharField(
         max_length=100,
         required=False,

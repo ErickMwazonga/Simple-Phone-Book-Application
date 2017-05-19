@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'phonebook',
     'crispy_forms',
+    'social_widgets',
 ]
 
 MIDDLEWARE = [

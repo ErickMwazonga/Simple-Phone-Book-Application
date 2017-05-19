@@ -24,9 +24,21 @@
     {% block content %}
     {% endblock content %}
 
-    <footer class="text-center footer">
+    <br/>
+    <footer class="footer">
         <p class="text-center">Copyright &copy;2017 PhoneBook Application All Rights Reserved<br/>By Erick Mwandeje Mwazonga.</p>
+        <div class="fb-like" data-href="https://www.facebook.com/MetasoftTechnology/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
     </footer>
+
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- All the link to js scripts to come last. -->
     <script src="{% static 'phonebook/js/jquery.min.js' %}"></script>
