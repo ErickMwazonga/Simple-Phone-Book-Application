@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('phonebook.urls'))
+    url(r'^', include('phonebook.urls')),
+    url(r'^api/contacts/', include('phonebook.api.urls')),
 ]

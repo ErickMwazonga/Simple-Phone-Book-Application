@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'phonebook',
+
     'crispy_forms',
     'social_widgets',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
