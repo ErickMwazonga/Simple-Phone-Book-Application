@@ -1,5 +1,5 @@
 import dj_database_url
-from .base import DATABASES
+from .settings import DATABASES
 
 DEBUG = True  # Why persecute me heroku???
 ALLOWED_HOSTS = ['app-phonebook.herokuapp.com', ]
