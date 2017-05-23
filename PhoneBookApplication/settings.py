@@ -164,3 +164,5 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 ASSETS_ROOT = 'phonebook/static'
+
+INTERNAL_IPS = ['127.0.0.1', ]
