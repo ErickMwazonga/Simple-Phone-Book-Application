@@ -1,1 +1,1 @@
-web: gunicorn phonebook.wsgi --log-file -
+web: gunicorn PhoneBookApplication.wsgi --log-file -

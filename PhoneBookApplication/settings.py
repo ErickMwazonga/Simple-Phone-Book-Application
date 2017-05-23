@@ -153,16 +153,6 @@ STATICFILES_DIRS = (
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
-#
-# SECRET_KEY = config('SECRET_KEY')
-# DEBUG = config('DEBUG', default=False)
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=config('DATABASE_URL')
-#     )
-# }
-
-
 ASSETS_ROOT = 'phonebook/static'
 
 INTERNAL_IPS = ['127.0.0.1', ]
