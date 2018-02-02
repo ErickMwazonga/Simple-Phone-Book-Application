@@ -96,6 +96,7 @@ class ContactListView(ListView):
                 phone_number__contains=by_phone
             )
         return queryset
+        
     def get_context_data(self, **kwargs):
         cxt = super(ContactListView, self).get_context_data(**kwargs)
         cxt['search_form'] = ContactSearchForm()
